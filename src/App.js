@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import MainPage from './pages/MainPage';
+import useSwitch from './hooks/useSwitch';
 
 function App() {
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDark, switchIsDark] = useSwitch(false);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  }
 
   return (
-    <div className={isDarkMode ? "dark" : "light"}>
-      <button onClick={toggleDarkMode}>Dark/Light</button>
+    <div className={isDark ? "dark" : "light"}>
+      <button onClick={switchIsDark}>Dark/Light</button>
       <MainPage />
     </div>
   );
